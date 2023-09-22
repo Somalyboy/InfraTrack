@@ -1,6 +1,6 @@
 ﻿namespace InfraTrack
 {
-    partial class Administrador
+    partial class AdmAlmacenes
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Administrador
+            // AdmAlmacenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 438);
-            this.Name = "Administrador";
-            this.Text = "Administrador";
+            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "AdmAlmacenes";
+            this.Text = "AdmAlmacenes";
             this.ResumeLayout(false);
 
         }

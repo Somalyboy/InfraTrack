@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace InfraTrack
 {
-    public partial class Administrador : Form
+    public partial class AdmAlmacenes : Form
     {
-        public Administrador()
+        public AdmAlmacenes()
         {
             InitializeComponent();
         }

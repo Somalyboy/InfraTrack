@@ -16,8 +16,7 @@ namespace InfraTrack
         Usuario u = new Usuario();
         conexion con = new conexion();
 
-        Administrador admin = new Administrador();
-        Cliente cliente = new Cliente();
+        
 
         public LogIn()
         {
@@ -33,22 +32,13 @@ namespace InfraTrack
             {
                 conexion.iniciarConexion();
                 MessageBox.Show("conexion exitosa");
+                this.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("error:" + ex);
             }
-
-            if (checkBox1.Checked)
-            {
-                admin.Show();
-                this.Hide();
-            }
-            else
-            {
-                cliente.Show();
-                this.Hide();
-            }
+            
         }
     }
 }

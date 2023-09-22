@@ -149,5 +149,9 @@ C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.p
 C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\bin\Debug\MySqlConnector.dll
 C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\bin\Debug\MySqlConnector.xml
 C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.LogIn.resources
-C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.Administrador.resources
+C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.InfraTrackApp.resources
+C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.Camionero.resources
 C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.Cliente.resources
+C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.AdmAlmacenes.resources
+C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.AdmCamioneros.resources
+C:\Users\Luciano Vidal\source\repos\InfraTrack\InfraTrack\obj\Debug\InfraTrack.Funcionario.resources
