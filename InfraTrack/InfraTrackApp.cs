@@ -77,5 +77,25 @@ namespace InfraTrack
         {
 
         }
+
+        private void btnCamionero_Click(object sender, EventArgs e)
+        {
+            abrirForm(new Camionero());
+        }
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            abrirForm(new Funcionario());
+        }
+
+        private void btnCam_Click(object sender, EventArgs e)
+        {
+            abrirForm(new AdmCamioneros());
+        }
+
+        private void btnAlm_Click(object sender, EventArgs e)
+        {
+            abrirForm(new AdmAlmacenes());
+        }
     }
 }

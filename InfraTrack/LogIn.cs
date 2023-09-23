@@ -25,12 +25,13 @@ namespace InfraTrack
 
         private void button1_Click(object sender, EventArgs e)
         {
-         //   string id = txtid.Text;
-         //   string contrasena = txtpassword.Text;
+            string id = txtid.Text;
+            string contrasena = txtpassword.Text;
 
             try
             {
                 conexion.iniciarConexion();
+                //  u.validar(id, contrasena);
                 MessageBox.Show("conexion exitosa");
                 this.Close();
             }

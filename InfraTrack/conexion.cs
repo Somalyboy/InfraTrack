@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace InfraTrack
 {
-    class conexion
+    public class conexion
     {
         public static MySqlConnection con = new MySqlConnection("server=localhost; " +
             "database=usuarios; " +

@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfraTrackApp));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCliente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUsuarios = new System.Windows.Forms.Button();
-            this.btnCamionero = new System.Windows.Forms.Button();
             this.btnFuncionario = new System.Windows.Forms.Button();
+            this.btnCamionero = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
+            this.btnCliente = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAlm = new System.Windows.Forms.Button();
             this.btnBackOffice = new System.Windows.Forms.Button();
@@ -56,19 +56,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 420);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // btnCliente
-            // 
-            this.btnCliente.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnCliente.Location = new System.Drawing.Point(-6, 48);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(101, 44);
-            this.btnCliente.TabIndex = 0;
-            this.btnCliente.Text = "Cliente";
-            this.btnCliente.UseVisualStyleBackColor = false;
-            this.btnCliente.Visible = false;
-            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnFuncionario);
@@ -79,6 +66,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(95, 186);
             this.panel1.TabIndex = 1;
+            // 
+            // btnFuncionario
+            // 
+            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnFuncionario.Location = new System.Drawing.Point(-3, 130);
+            this.btnFuncionario.Name = "btnFuncionario";
+            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
+            this.btnFuncionario.TabIndex = 3;
+            this.btnFuncionario.Text = "Funcionario";
+            this.btnFuncionario.UseVisualStyleBackColor = false;
+            this.btnFuncionario.Visible = false;
+            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
+            // 
+            // btnCamionero
+            // 
+            this.btnCamionero.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCamionero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnCamionero.Location = new System.Drawing.Point(-3, 89);
+            this.btnCamionero.Name = "btnCamionero";
+            this.btnCamionero.Size = new System.Drawing.Size(101, 44);
+            this.btnCamionero.TabIndex = 2;
+            this.btnCamionero.Text = "Camionero";
+            this.btnCamionero.UseVisualStyleBackColor = false;
+            this.btnCamionero.Visible = false;
+            this.btnCamionero.Click += new System.EventHandler(this.btnCamionero_Click);
             // 
             // btnUsuarios
             // 
@@ -92,29 +105,18 @@
             this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
-            // btnCamionero
+            // btnCliente
             // 
-            this.btnCamionero.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCamionero.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnCamionero.Location = new System.Drawing.Point(-3, 89);
-            this.btnCamionero.Name = "btnCamionero";
-            this.btnCamionero.Size = new System.Drawing.Size(101, 44);
-            this.btnCamionero.TabIndex = 2;
-            this.btnCamionero.Text = "Camionero";
-            this.btnCamionero.UseVisualStyleBackColor = false;
-            this.btnCamionero.Visible = false;
-            // 
-            // btnFuncionario
-            // 
-            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnFuncionario.Location = new System.Drawing.Point(-3, 130);
-            this.btnFuncionario.Name = "btnFuncionario";
-            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
-            this.btnFuncionario.TabIndex = 3;
-            this.btnFuncionario.Text = "Funcionario";
-            this.btnFuncionario.UseVisualStyleBackColor = false;
-            this.btnFuncionario.Visible = false;
+            this.btnCliente.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnCliente.Location = new System.Drawing.Point(-6, 48);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(101, 44);
+            this.btnCliente.TabIndex = 0;
+            this.btnCliente.Text = "Cliente";
+            this.btnCliente.UseVisualStyleBackColor = false;
+            this.btnCliente.Visible = false;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // panel2
             // 
@@ -137,6 +139,7 @@
             this.btnAlm.Text = "AdmAlmacenes";
             this.btnAlm.UseVisualStyleBackColor = false;
             this.btnAlm.Visible = false;
+            this.btnAlm.Click += new System.EventHandler(this.btnAlm_Click);
             // 
             // btnBackOffice
             // 
@@ -161,6 +164,7 @@
             this.btnCam.Text = "AdmCamioneros";
             this.btnCam.UseVisualStyleBackColor = false;
             this.btnCam.Visible = false;
+            this.btnCam.Click += new System.EventHandler(this.btnCam_Click);
             // 
             // panelContenedor
             // 
