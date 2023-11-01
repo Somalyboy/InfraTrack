@@ -10,23 +10,34 @@ namespace InfraTrack
 {
     public class conexion
     {
-        public static MySqlConnection con = new MySqlConnection("server=localhost; " +
-            "database=usuarios; " +
-            "Uid=root; " +
-            "pwd=negritoBD123;"); 
-            
-        public static void iniciarConexion()
+       // private string _connectionString;
+        
+        public string ObtenerRol(string id, string contrasena)
         {
-            try
+            using (MySqlConnection connection = new MySqlConnection())
             {
-                con.Open();
-                
+                connection.Open();
+                string query = "SELECT rol.nombre FROM usuario INNER JOIN rol ON usuario.role_id = rol.id WHERE usuario.id = @id AND usuario.contrasena = @contrasena";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@contrasena", contrasena);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader["nombre"].ToString(); //nombre = rol.nombre
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("error: " + ex);
-                con.Close();
-            }
+
         }
     }
 }

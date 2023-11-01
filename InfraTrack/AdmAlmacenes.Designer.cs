@@ -135,7 +135,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdmAlmacenes";
-            this.Text = "AdmAlmacenes";
+            this.Text = "q";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,7 +16,7 @@ namespace InfraTrack
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InfraTrackApp());
+            Application.Run(new LogIn());
         }
     }
 }

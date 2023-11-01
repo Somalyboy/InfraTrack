@@ -5,36 +5,46 @@ using System.Text;
 using System.Threading.Tasks;
 using MySqlConnector;
 
-
 namespace InfraTrack
 {
+    
     class Usuario
     {
-        public MySqlCommand comando;        
-        public MySqlDataReader reader;
-        public MySqlConnection conexion = new MySqlConnection();
+        //  public MySqlConnection conexion = new MySqlConnection();
+        conexion c = new conexion();
 
-        //probe un poco pero no funca ni pa atras
-        //
+      //  string rol_nombre = c.ObtenerRol.ToString(); //agggg
 
-      public bool validar(string id, string contrasena)
+        public void identificarUsuario(string rol_nombre)
         {
-            conexion.OpenAsync();
-            comando.CommandText = "select * from usuario where id = @id AND contrasena = @contrasena";
-            comando.Parameters.AddWithValue("@id", id);
-            comando.Parameters.AddWithValue("@contrasena", contrasena);
-            comando.Prepare();
-            
+            switch (rol_nombre)
+            {
+                case "Administrador":
+                    InfraTrackApp form1 = new InfraTrackApp();
+                    form1.Show();
+                    break;
 
-            if (reader.Read())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                case "User":
+                  //  InfraTrackApp form1 = new InfraTrackApp();
+                  //  form1.Show();
+                    break;
+
+                case "Funcionario":
+                //    InfraTrackApp form1 = new InfraTrackApp();
+                 //   form1.Show();
+                    break;
+
+                case "Chofer":
+                 //   InfraTrackApp form1 = new InfraTrackApp();
+                 //   form1.Show();
+                    break;
+
+                default:
+                    // Rol no reconocido.
+                    break;
             }
         }
+
 
 
     }

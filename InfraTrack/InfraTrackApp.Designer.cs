@@ -187,7 +187,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MaximumSize = new System.Drawing.Size(620, 459);
             this.Name = "InfraTrackApp";
-            this.Text = "InfraTrackApp";
+            this.Text = "Aplicaion";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
