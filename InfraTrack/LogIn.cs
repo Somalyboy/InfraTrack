@@ -50,9 +50,7 @@ namespace InfraTrack
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            try
-            {
+            
                 using (MySqlConnection conn = GetConnection())
                 {
                     
@@ -60,37 +58,98 @@ namespace InfraTrack
                    // string contrasenaHash = HashPassword(txtpassword.Text);
                     string contrasena = txtpassword.Text;
                     conn.Open();
-                    string query = "SELECT * FROM usuarios WHERE id = @id AND contrasena = @contrasena";
+
+                    string query = "SELECT rol FROM usuario WHERE id = @id AND contrasena = @contrasena";
                     MySqlCommand comando = new MySqlCommand(query, conn);
                     comando.Parameters.AddWithValue("@id", txtid.Text);
-                    comando.Parameters.AddWithValue("@contrasena", contrasena);
+                    comando.Parameters.AddWithValue("@contrasena", txtpassword.Text);
                     MySqlDataReader reader = comando.ExecuteReader();
 
                     if (reader.HasRows)
                     {
-                        MessageBox.Show("Bienvenido, usuario nro: " + txtid.Text);
-                        /* exist = true;
-                         if (exist)
-                         {
-                             u.ObtenerRol(id, contrasena);
-                         }*/
+                    string rol = string.Empty;
+
+                    if(reader.Read())
+                    {
+                        rol = reader["rol"].ToString();
+                    }
+                    reader.Close();
+
+                    MySqlConnection rolConnection = null;
+
+                    if(rol == "Admin")
+                    {
+                        rolConnection = GetAdminConnection();
+                        
+                    }
+                    else if (rol == "usuario")
+                    {
+                        rolConnection = GetUserConnection();
+                    }
+                    else if (rol == "camionero")
+                    {
+                        rolConnection = GetCamioneroConnection();
+                    }
+                    else if (rol == "funcionario")
+                    {
+                        rolConnection = GetFuncionarioConnection();
                     }
 
-                    else
+                    if (rolConnection != null)
+                    {
+                        rolConnection.Open();
+                        
+                    }
+                    
+
+                    MessageBox.Show("Bienvenido user: " + txtid.Text + "Rol: " + rol);
+                }
+
+                else
                     {
                         MessageBox.Show("Usuario no encontrado");
 
                     }
 
-                    reader.Close();
+                   // reader.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+        }
+
+        private MySqlConnection GetAdminConnection()
+        {
+            string adminConnectionString = "server=localhost;user=root;database=usuarios;port=3306;password=negritoBD123;";
+            
+            MySqlConnection adminConnection = new MySqlConnection(adminConnectionString);
+
+            return adminConnection;
+        }
 
 
+        private MySqlConnection GetUserConnection()
+        {
+            string userConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
+            
+            MySqlConnection userConnection = new MySqlConnection(userConnectionString);
+
+            return userConnection;
+        }
+
+        private MySqlConnection GetCamioneroConnection()
+        {
+            string camioneroConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
+            
+            MySqlConnection camioneroConnection = new MySqlConnection(camioneroConnectionString);
+
+            return camioneroConnection;
+        }
+
+        private MySqlConnection GetFuncionarioConnection()
+        {
+            string funcionarioConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
+            
+            MySqlConnection funcionarioConnection = new MySqlConnection(funcionarioConnectionString);
+
+            return funcionarioConnection;
         }
 
 
