@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySqlConnector;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace InfraTrack
 {
@@ -28,39 +29,70 @@ namespace InfraTrack
             return new MySqlConnection(connectionString);
         }
 
+        //hash sha256
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+      
+
         private void button1_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = GetConnection())
+
+            try
             {
-                bool exist;
-                string id = txtid.Text;
-                string contrasena = txtpassword.Text;
-                conn.Open();
-                string query = "SELECT * FROM usuarios WHERE id = @id AND contrasena = @contrasena";
-                MySqlCommand comando = new MySqlCommand(query, conn);
-                comando.Parameters.AddWithValue("@id", txtid.Text);
-                comando.Parameters.AddWithValue("@contrasena", txtpassword.Text);
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                if (reader.HasRows)
+                using (MySqlConnection conn = GetConnection())
                 {
-                    MessageBox.Show("Bienvenido, usuario nro: " + txtid.Text);
-                   /* exist = true;
-                    if (exist)
+                    
+                    string id = txtid.Text;
+                   // string contrasenaHash = HashPassword(txtpassword.Text);
+                    string contrasena = txtpassword.Text;
+                    conn.Open();
+                    string query = "SELECT * FROM usuarios WHERE id = @id AND contrasena = @contrasena";
+                    MySqlCommand comando = new MySqlCommand(query, conn);
+                    comando.Parameters.AddWithValue("@id", txtid.Text);
+                    comando.Parameters.AddWithValue("@contrasena", contrasena);
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        u.ObtenerRol(id, contrasena);
-                    }*/
-                }
-                
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado");
-                }
+                        MessageBox.Show("Bienvenido, usuario nro: " + txtid.Text);
+                        /* exist = true;
+                         if (exist)
+                         {
+                             u.ObtenerRol(id, contrasena);
+                         }*/
+                    }
 
-                reader.Close();
+                    else
+                    {
+                        MessageBox.Show("Usuario no encontrado");
+
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
 
-            }
+
+        }
+
 
         private void LogIn_Load(object sender, EventArgs e)
         {
