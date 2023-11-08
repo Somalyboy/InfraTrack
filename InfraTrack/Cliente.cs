@@ -59,6 +59,21 @@ namespace InfraTrack
                     MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
                 }
             } 
-        } 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 } 

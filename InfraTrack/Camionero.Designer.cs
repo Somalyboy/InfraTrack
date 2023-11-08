@@ -38,16 +38,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnComenTrayecto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label1.Location = new System.Drawing.Point(16, 32);
+            this.label1.Location = new System.Drawing.Point(12, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 20);
             this.label1.TabIndex = 0;
@@ -55,14 +53,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 34);
+            this.textBox1.Location = new System.Drawing.Point(183, 65);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(304, 34);
+            this.button1.Location = new System.Drawing.Point(300, 65);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -91,7 +89,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(187, 70);
+            this.comboBox1.Location = new System.Drawing.Point(183, 101);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 5;
@@ -100,7 +98,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(16, 70);
+            this.label4.Location = new System.Drawing.Point(12, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(159, 20);
             this.label4.TabIndex = 6;
@@ -108,7 +106,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(304, 70);
+            this.button2.Location = new System.Drawing.Point(300, 101);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -134,33 +132,16 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "MatriculaCamion:";
             // 
-            // button3
+            // btnComenTrayecto
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.button3.Location = new System.Drawing.Point(126, 238);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(185, 73);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Comenzar Trayecto";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.label7.Location = new System.Drawing.Point(121, 118);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(196, 25);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Ingrese ID de viaje:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F);
-            this.textBox2.Location = new System.Drawing.Point(164, 169);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 27);
-            this.textBox2.TabIndex = 12;
+            this.btnComenTrayecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.btnComenTrayecto.Location = new System.Drawing.Point(125, 176);
+            this.btnComenTrayecto.Name = "btnComenTrayecto";
+            this.btnComenTrayecto.Size = new System.Drawing.Size(185, 73);
+            this.btnComenTrayecto.TabIndex = 10;
+            this.btnComenTrayecto.Text = "Comenzar Trayecto";
+            this.btnComenTrayecto.UseVisualStyleBackColor = true;
+            this.btnComenTrayecto.Click += new System.EventHandler(this.button3_Click);
             // 
             // Camionero
             // 
@@ -168,9 +149,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(625, 381);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnComenTrayecto);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
@@ -202,8 +181,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnComenTrayecto;
     }
 }

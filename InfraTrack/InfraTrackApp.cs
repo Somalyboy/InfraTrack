@@ -12,6 +12,7 @@ namespace InfraTrack
 {
     public partial class InfraTrackApp : Form
     {
+        public AdmCamioneros a = new AdmCamioneros();
         public InfraTrackApp()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace InfraTrack
 
         LogIn login = new LogIn();
 
-        private void ocultarPaneles()
+        public void ocultarPaneles()
         {
             btnCliente.Visible = false;
             btnCamionero.Visible = false;
@@ -42,7 +43,12 @@ namespace InfraTrack
            
         }
 
-        private void abrirForm(object subform)
+        public void ComenzarTrayecto()
+        {
+            abrirForm(new AdmCamioneros());
+        }
+
+        public void abrirForm(object subform)
         {
             if (this.panelContenedor.Controls.Count > 0)
                 this.panelContenedor.Controls.RemoveAt(0);
@@ -103,6 +109,12 @@ namespace InfraTrack
         private void InfraTrackApp_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void CamionerorVentana()
+        {
+            Camionero c = new Camionero();
+            c.Visible = false;
         }
     }
 }
