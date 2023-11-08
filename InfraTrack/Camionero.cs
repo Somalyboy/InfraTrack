@@ -16,5 +16,10 @@ namespace InfraTrack
         {
             InitializeComponent();
         }
+
+        private void Camionero_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

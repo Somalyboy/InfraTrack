@@ -26,21 +26,20 @@ namespace InfraTrack
             btnCamionero.Visible = false;
             btnFuncionario.Visible = false;
             btnAlm.Visible = false;
-            btnCam.Visible = false;
+           
         }
 
         private void Mostrar1()
         {
             btnCliente.Visible = true;
             btnCamionero.Visible = true;
-            btnFuncionario.Visible = true;
 
         }
 
         private void Mostrar2()
         {
             btnAlm.Visible = true;
-            btnCam.Visible = true;
+           
         }
 
         private void abrirForm(object subform)
@@ -70,6 +69,7 @@ namespace InfraTrack
         {
                 login.Show();
                 abrirForm(new Cliente());
+            
 
             }
 
@@ -96,6 +96,13 @@ namespace InfraTrack
         private void btnAlm_Click(object sender, EventArgs e)
         {
             abrirForm(new AdmAlmacenes());
+            btnFuncionario.Visible = true;
+            
+        }
+
+        private void InfraTrackApp_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

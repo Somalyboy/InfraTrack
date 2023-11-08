@@ -8,36 +8,20 @@ using System.Windows.Forms;
 
 namespace InfraTrack
 {
+    using MySqlConnector;
+
     public class conexion
     {
-       // private string _connectionString;
-        
-        public string ObtenerRol(string id, string contrasena)
+        private string connectionString;
+
+        public conexion()
         {
-            using (MySqlConnection connection = new MySqlConnection())
-            {
-                connection.Open();
-                string query = "SELECT rol.nombre FROM usuario INNER JOIN rol ON usuario.role_id = rol.id WHERE usuario.id = @id AND usuario.contrasena = @contrasena";
+            connectionString = "server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123;";
+        }
 
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.Parameters.AddWithValue("@contrasena", contrasena);
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return reader["nombre"].ToString(); //nombre = rol.nombre
-                        }
-                        else
-                        {
-                            return null;
-                        }
-                    }
-                }
-            }
-
+        public MySqlConnection GetConexion()
+        {
+            return new MySqlConnection(connectionString);
         }
     }
 }

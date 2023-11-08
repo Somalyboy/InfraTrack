@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfraTrackApp));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnCamionero = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnAlm = new System.Windows.Forms.Button();
             this.btnBackOffice = new System.Windows.Forms.Button();
-            this.btnCam = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,27 +58,13 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnFuncionario);
             this.panel1.Controls.Add(this.btnCamionero);
             this.panel1.Controls.Add(this.btnUsuarios);
             this.panel1.Controls.Add(this.btnCliente);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(95, 186);
+            this.panel1.Size = new System.Drawing.Size(95, 137);
             this.panel1.TabIndex = 1;
-            // 
-            // btnFuncionario
-            // 
-            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnFuncionario.Location = new System.Drawing.Point(-3, 130);
-            this.btnFuncionario.Name = "btnFuncionario";
-            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
-            this.btnFuncionario.TabIndex = 3;
-            this.btnFuncionario.Text = "Funcionario";
-            this.btnFuncionario.UseVisualStyleBackColor = false;
-            this.btnFuncionario.Visible = false;
-            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // btnCamionero
             // 
@@ -120,19 +106,32 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFuncionario);
             this.panel2.Controls.Add(this.btnAlm);
             this.panel2.Controls.Add(this.btnBackOffice);
-            this.panel2.Controls.Add(this.btnCam);
-            this.panel2.Location = new System.Drawing.Point(3, 195);
+            this.panel2.Location = new System.Drawing.Point(3, 146);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(95, 150);
+            this.panel2.Size = new System.Drawing.Size(95, 130);
             this.panel2.TabIndex = 2;
+            // 
+            // btnFuncionario
+            // 
+            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnFuncionario.Location = new System.Drawing.Point(-3, 79);
+            this.btnFuncionario.Name = "btnFuncionario";
+            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
+            this.btnFuncionario.TabIndex = 3;
+            this.btnFuncionario.Text = "Funcionario";
+            this.btnFuncionario.UseVisualStyleBackColor = false;
+            this.btnFuncionario.Visible = false;
+            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // btnAlm
             // 
             this.btnAlm.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnAlm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnAlm.Location = new System.Drawing.Point(-3, 89);
+            this.btnAlm.Location = new System.Drawing.Point(-3, 39);
             this.btnAlm.Name = "btnAlm";
             this.btnAlm.Size = new System.Drawing.Size(101, 44);
             this.btnAlm.TabIndex = 2;
@@ -153,19 +152,6 @@
             this.btnBackOffice.UseVisualStyleBackColor = false;
             this.btnBackOffice.Click += new System.EventHandler(this.btnBackOffice_Click);
             // 
-            // btnCam
-            // 
-            this.btnCam.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnCam.Location = new System.Drawing.Point(-6, 48);
-            this.btnCam.Name = "btnCam";
-            this.btnCam.Size = new System.Drawing.Size(101, 44);
-            this.btnCam.TabIndex = 0;
-            this.btnCam.Text = "AdmCamioneros";
-            this.btnCam.UseVisualStyleBackColor = false;
-            this.btnCam.Visible = false;
-            this.btnCam.Click += new System.EventHandler(this.btnCam_Click);
-            // 
             // panelContenedor
             // 
             this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
@@ -174,6 +160,13 @@
             this.panelContenedor.Size = new System.Drawing.Size(501, 420);
             this.panelContenedor.TabIndex = 1;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // mySqlCommand1
+            // 
+            this.mySqlCommand1.CommandTimeout = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.Transaction = null;
+            this.mySqlCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
             // InfraTrackApp
             // 
@@ -187,7 +180,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MaximumSize = new System.Drawing.Size(620, 459);
             this.Name = "InfraTrackApp";
-            this.Text = "Aplicaion";
+            this.Text = "INFRATRACK-APP";
+            this.Load += new System.EventHandler(this.InfraTrackApp_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -206,7 +200,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAlm;
         private System.Windows.Forms.Button btnBackOffice;
-        private System.Windows.Forms.Button btnCam;
         private System.Windows.Forms.Panel panelContenedor;
+        private MySqlConnector.MySqlCommand mySqlCommand1;
     }
 }

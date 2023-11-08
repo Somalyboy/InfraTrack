@@ -16,7 +16,8 @@ namespace InfraTrack
     public partial class LogIn : Form
     {
         conexion u = new conexion();
-        
+
+        Cliente c = new Cliente();
 
         public LogIn()
         {
@@ -34,10 +35,10 @@ namespace InfraTrack
         {
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                
+
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
 
-                
+
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -46,19 +47,21 @@ namespace InfraTrack
                 return builder.ToString();
             }
         }
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+
                 using (MySqlConnection conn = GetConnection())
                 {
-                    
+
                     string id = txtid.Text;
-                   // string contrasenaHash = HashPassword(txtpassword.Text);
+                    // string contrasenaHash = HashPassword(txtpassword.Text);
                     string contrasena = txtpassword.Text;
                     conn.Open();
-
+                    
                     string query = "SELECT rol FROM usuario WHERE id = @id AND contrasena = @contrasena";
                     MySqlCommand comando = new MySqlCommand(query, conn);
                     comando.Parameters.AddWithValue("@id", txtid.Text);
@@ -67,90 +70,55 @@ namespace InfraTrack
 
                     if (reader.HasRows)
                     {
-                    string rol = string.Empty;
-
-                    if(reader.Read())
-                    {
-                        rol = reader["rol"].ToString();
-                    }
-                    reader.Close();
-
-                    MySqlConnection rolConnection = null;
-
-                    if(rol == "Admin")
-                    {
-                        rolConnection = GetAdminConnection();
+                        reader.Read();
+                        string rol = reader["rol"].ToString();
+                        reader.Close();
                         
+                        MySqlConnection rolConnection = GetConnectionByRole(rol);
+                        MessageBox.Show("Bienvenido Usuario ID: " + txtid.Text + "Rol: " + rol);
                     }
-                    else if (rol == "usuario")
-                    {
-                        rolConnection = GetUserConnection();
-                    }
-                    else if (rol == "camionero")
-                    {
-                        rolConnection = GetCamioneroConnection();
-                    }
-                    else if (rol == "funcionario")
-                    {
-                        rolConnection = GetFuncionarioConnection();
-                    }
-
-                    if (rolConnection != null)
-                    {
-                        rolConnection.Open();
-                        
-                    }
-                    
-
-                    MessageBox.Show("Bienvenido user: " + txtid.Text + "Rol: " + rol);
-                }
-
-                else
+                    else
                     {
                         MessageBox.Show("Usuario no encontrado");
 
                     }
-
-                   // reader.Close();
+                    
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
-        private MySqlConnection GetAdminConnection()
+        private MySqlConnection GetConnectionByRole(string rol)
         {
-            string adminConnectionString = "server=localhost;user=root;database=usuarios;port=3306;password=negritoBD123;";
-            
-            MySqlConnection adminConnection = new MySqlConnection(adminConnectionString);
+            MySqlConnection conn = null;
 
-            return adminConnection;
+            switch (rol)
+            {
+                case "admin":
+                    conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
+                    //c.Show();
+                    break;
+
+                case "usuario":
+                    conn = new MySqlConnection("server=localhos;port=3306;database=usuarios;user=root;password=negritoBD123");
+                    break;      
+                    
+                case "Funcionario":
+                  //  conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
+                    break;
+
+                case "Chofer":
+                  //  conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
+                    break;
+            }
+
+            return conn;
         }
 
-
-        private MySqlConnection GetUserConnection()
-        {
-            string userConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
-            
-            MySqlConnection userConnection = new MySqlConnection(userConnectionString);
-
-            return userConnection;
-        }
-
-        private MySqlConnection GetCamioneroConnection()
-        {
-            string camioneroConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
-            
-            MySqlConnection camioneroConnection = new MySqlConnection(camioneroConnectionString);
-
-            return camioneroConnection;
-        }
-
-        private MySqlConnection GetFuncionarioConnection()
-        {
-            string funcionarioConnectionString = "server=localhost;user=admin;database=nombreBaseDatos;port=3306;password=adminPassword;";
-            
-            MySqlConnection funcionarioConnection = new MySqlConnection(funcionarioConnectionString);
-
-            return funcionarioConnection;
-        }
+    
 
 
         private void LogIn_Load(object sender, EventArgs e)
