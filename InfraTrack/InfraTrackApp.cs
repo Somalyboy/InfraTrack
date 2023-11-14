@@ -12,35 +12,78 @@ namespace InfraTrack
 {
     public partial class InfraTrackApp : Form
     {
+        
+        private bool usuariosVisible = false;
+        private bool backOfficeVisible = false;
+        
+
         public AdmCamioneros a = new AdmCamioneros();
         public InfraTrackApp()
         {
             InitializeComponent();
-            ocultarPaneles();
+            ocultarTodo();
+            
         }
-
-        LogIn login = new LogIn();
-
-        public void ocultarPaneles()
+        
+        public void ocultarTodo()
         {
-            btnCliente.Visible = false;
             btnCamionero.Visible = false;
             btnFuncionario.Visible = false;
             btnAlm.Visible = false;
-           
+            btnVolver.Visible = true;
+            btnBackOffice.Visible = false;
+            btnUsuarios.Enabled = false;
+
+
+        }
+        
+        public void habilitarUsuario()
+        {
+            btnUsuarios.Enabled = true;
         }
 
         private void Mostrar1()
         {
+          
+            MostrarUsuarios();
+        }
+
+        private void MostrarUsuarios()
+        {
             btnCliente.Visible = true;
             btnCamionero.Visible = true;
+            btnFuncionario.Visible = true;
+            btnBackOffice.Visible = true;
+        }
+
+    private void Mostrar2()
+        {
+            btnAlm.Visible = backOfficeVisible;
 
         }
 
-        private void Mostrar2()
+        public void HabilitarPorRol(string rol)
         {
-            btnAlm.Visible = true;
-           
+            switch (rol)
+            {
+                case "admin":
+
+                    break;
+                case "usuario":
+                    btnCamionero.Enabled = false;
+                    btnFuncionario.Enabled = false;
+                    btnAlm.Enabled = false;
+                    break;
+
+                case "chofer":
+                    btnFuncionario.Enabled = false;
+                    btnAlm.Enabled = false;
+                    break;
+
+                case "funcionario":
+                    btnCamionero.Enabled = false;
+                    break;
+            }
         }
 
         public void ComenzarTrayecto()
@@ -63,17 +106,18 @@ namespace InfraTrack
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            Mostrar1();
+            usuariosVisible = !usuariosVisible;
+            MostrarUsuarios();
         }
 
         private void btnBackOffice_Click(object sender, EventArgs e)
         {
+            backOfficeVisible = !backOfficeVisible;
             Mostrar2();
         }
 
         private void btnCliente_Click(object sender, EventArgs e)
         {
-                login.Show();
                 abrirForm(new Cliente());
             
 
@@ -102,7 +146,7 @@ namespace InfraTrack
         private void btnAlm_Click(object sender, EventArgs e)
         {
             abrirForm(new AdmAlmacenes());
-            btnFuncionario.Visible = true;
+            
             
         }
 
@@ -115,6 +159,24 @@ namespace InfraTrack
         {
             Camionero c = new Camionero();
             c.Visible = false;
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            LogIn loginForm = new LogIn(this);
+            loginForm.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            LogIn loginForm = new LogIn(this);
+            loginForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

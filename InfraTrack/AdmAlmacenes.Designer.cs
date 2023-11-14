@@ -33,26 +33,28 @@
             this.txtAlmacen = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewAlmacen = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.checkboxIncluirChofer = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtCedula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkboxIncluirLote = new System.Windows.Forms.CheckBox();
+            this.dataGridViewChofer = new System.Windows.Forms.DataGridView();
+            this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlmacen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChofer)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label1.Location = new System.Drawing.Point(54, 20);
+            this.label1.Location = new System.Drawing.Point(56, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 29);
             this.label1.TabIndex = 0;
@@ -63,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(28, 63);
+            this.label2.Location = new System.Drawing.Point(30, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 1;
@@ -71,14 +73,14 @@
             // 
             // txtAlmacen
             // 
-            this.txtAlmacen.Location = new System.Drawing.Point(126, 66);
+            this.txtAlmacen.Location = new System.Drawing.Point(128, 58);
             this.txtAlmacen.Name = "txtAlmacen";
             this.txtAlmacen.Size = new System.Drawing.Size(86, 20);
             this.txtAlmacen.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(228, 64);
+            this.button1.Location = new System.Drawing.Point(230, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -90,128 +92,150 @@
             // 
             this.dataGridViewAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAlmacen.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewAlmacen.Location = new System.Drawing.Point(32, 109);
+            this.dataGridViewAlmacen.Location = new System.Drawing.Point(34, 101);
             this.dataGridViewAlmacen.Name = "dataGridViewAlmacen";
             this.dataGridViewAlmacen.Size = new System.Drawing.Size(397, 82);
             this.dataGridViewAlmacen.TabIndex = 9;
             // 
-            // button3
+            // btnEliminar
             // 
-            this.button3.Location = new System.Drawing.Point(372, 378);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(356, 379);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // checkBox1
+            // checkboxIncluirChofer
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(309, 63);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(85, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "IncluirChofer";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkboxIncluirChofer.AutoSize = true;
+            this.checkboxIncluirChofer.Location = new System.Drawing.Point(311, 55);
+            this.checkboxIncluirChofer.Name = "checkboxIncluirChofer";
+            this.checkboxIncluirChofer.Size = new System.Drawing.Size(85, 17);
+            this.checkboxIncluirChofer.TabIndex = 11;
+            this.checkboxIncluirChofer.Text = "IncluirChofer";
+            this.checkboxIncluirChofer.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label3.Location = new System.Drawing.Point(58, 204);
+            this.label3.Location = new System.Drawing.Point(60, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(336, 29);
+            this.label3.Size = new System.Drawing.Size(358, 29);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Administracion De Choferes:";
+            this.label3.Text = "Administracion Camion/Chofer";
             // 
-            // button4
+            // btnBuscar
             // 
-            this.button4.Location = new System.Drawing.Point(354, 236);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Buscar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(356, 237);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 15;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscarAdmin_Click);
             // 
-            // textBox1
+            // txtCedula
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 247);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(86, 20);
-            this.textBox1.TabIndex = 14;
+            this.txtCedula.Location = new System.Drawing.Point(113, 239);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(86, 20);
+            this.txtCedula.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(28, 244);
+            this.label4.Location = new System.Drawing.Point(30, 236);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 13;
             this.label4.Text = "IdChofer:";
             // 
-            // checkBox2
+            // checkboxIncluirLote
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(309, 86);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(75, 17);
-            this.checkBox2.TabIndex = 16;
-            this.checkBox2.Text = "IncluirLote";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkboxIncluirLote.AutoSize = true;
+            this.checkboxIncluirLote.Location = new System.Drawing.Point(311, 78);
+            this.checkboxIncluirLote.Name = "checkboxIncluirLote";
+            this.checkboxIncluirLote.Size = new System.Drawing.Size(75, 17);
+            this.checkboxIncluirLote.TabIndex = 16;
+            this.checkboxIncluirLote.Text = "IncluirLote";
+            this.checkboxIncluirLote.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewChofer
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 290);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(397, 82);
-            this.dataGridView1.TabIndex = 17;
+            this.dataGridViewChofer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewChofer.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridViewChofer.Location = new System.Drawing.Point(34, 291);
+            this.dataGridViewChofer.Name = "dataGridViewChofer";
+            this.dataGridViewChofer.Size = new System.Drawing.Size(397, 82);
+            this.dataGridViewChofer.TabIndex = 17;
             // 
-            // textBox2
+            // txtMatricula
             // 
-            this.textBox2.Location = new System.Drawing.Point(251, 247);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(86, 20);
-            this.textBox2.TabIndex = 20;
+            this.txtMatricula.Location = new System.Drawing.Point(253, 239);
+            this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.Size = new System.Drawing.Size(86, 20);
+            this.txtMatricula.TabIndex = 20;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(203, 247);
+            this.label5.Location = new System.Drawing.Point(205, 239);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 20);
             this.label5.TabIndex = 19;
             this.label5.Text = "Mat:";
             // 
-            // button5
+            // btnIngresar
             // 
-            this.button5.Location = new System.Drawing.Point(354, 261);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "Ingresar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnIngresar.Location = new System.Drawing.Point(356, 262);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.TabIndex = 21;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click_1);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label6.Location = new System.Drawing.Point(30, 261);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 20);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Nombre:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(113, 263);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(86, 20);
+            this.txtNombre.TabIndex = 23;
             // 
             // AdmAlmacenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(727, 404);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(727, 414);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridViewChofer);
+            this.Controls.Add(this.checkboxIncluirLote);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkboxIncluirChofer);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridViewAlmacen);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtAlmacen);
@@ -221,7 +245,7 @@
             this.Name = "AdmAlmacenes";
             this.Text = "q";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlmacen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChofer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,16 +258,18 @@
         private System.Windows.Forms.TextBox txtAlmacen;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewAlmacen;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.CheckBox checkboxIncluirChofer;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkboxIncluirLote;
+        private System.Windows.Forms.DataGridView dataGridViewChofer;
+        private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }
