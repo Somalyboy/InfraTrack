@@ -34,8 +34,6 @@ namespace InfraTrack
         
         public void button3_Click(object sender, EventArgs e)
         {
-            a.Show();
-           
             
         }
 
@@ -90,5 +88,19 @@ namespace InfraTrack
             }
         }
 
+        private void btnComenTrayecto_Click(object sender, EventArgs e)
+        {
+            a.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

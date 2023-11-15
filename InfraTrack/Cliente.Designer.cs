@@ -37,15 +37,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -75,23 +75,25 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(285, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 25);
             this.button1.TabIndex = 9;
             this.button1.Text = "CONSULTAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.DarkOrange;
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(255, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(115, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "BUSCAR PAUQETE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewLote
@@ -148,6 +150,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 139);
             this.panel1.TabIndex = 20;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label13.Location = new System.Drawing.Point(3, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(183, 20);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "VIAJE COMPLETADO:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label11.Location = new System.Drawing.Point(187, 108);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(122, 18);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "85% Completado";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label12.Location = new System.Drawing.Point(3, 108);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 20);
+            this.label12.TabIndex = 26;
             // 
             // label3
             // 
@@ -208,35 +239,6 @@
             this.label5.Size = new System.Drawing.Size(178, 20);
             this.label5.TabIndex = 20;
             this.label5.Text = "DEMORA ESTIMADA:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label11.Location = new System.Drawing.Point(187, 108);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 18);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "85% Completado";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label12.Location = new System.Drawing.Point(3, 108);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(0, 20);
-            this.label12.TabIndex = 26;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label13.Location = new System.Drawing.Point(3, 110);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(183, 20);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "VIAJE COMPLETADO:";
             // 
             // checkBox1
             // 
@@ -303,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(675, 385);
+            this.ClientSize = new System.Drawing.Size(438, 385);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);

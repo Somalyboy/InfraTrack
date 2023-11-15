@@ -54,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label1.Location = new System.Drawing.Point(56, 12);
+            this.label1.Location = new System.Drawing.Point(46, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 29);
             this.label1.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label2.Location = new System.Drawing.Point(30, 55);
+            this.label2.Location = new System.Drawing.Point(20, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 1;
@@ -73,44 +73,46 @@
             // 
             // txtAlmacen
             // 
-            this.txtAlmacen.Location = new System.Drawing.Point(128, 58);
+            this.txtAlmacen.Location = new System.Drawing.Point(118, 66);
             this.txtAlmacen.Name = "txtAlmacen";
             this.txtAlmacen.Size = new System.Drawing.Size(86, 20);
             this.txtAlmacen.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(230, 56);
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
+            this.button1.Location = new System.Drawing.Point(220, 64);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridViewAlmacen
             // 
             this.dataGridViewAlmacen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAlmacen.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewAlmacen.Location = new System.Drawing.Point(34, 101);
+            this.dataGridViewAlmacen.Location = new System.Drawing.Point(24, 109);
             this.dataGridViewAlmacen.Name = "dataGridViewAlmacen";
             this.dataGridViewAlmacen.Size = new System.Drawing.Size(397, 82);
             this.dataGridViewAlmacen.TabIndex = 9;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(356, 379);
+            this.btnEliminar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEliminar.Location = new System.Drawing.Point(346, 387);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.button3_Click);
             // 
             // checkboxIncluirChofer
             // 
             this.checkboxIncluirChofer.AutoSize = true;
-            this.checkboxIncluirChofer.Location = new System.Drawing.Point(311, 55);
+            this.checkboxIncluirChofer.Location = new System.Drawing.Point(301, 63);
             this.checkboxIncluirChofer.Name = "checkboxIncluirChofer";
             this.checkboxIncluirChofer.Size = new System.Drawing.Size(85, 17);
             this.checkboxIncluirChofer.TabIndex = 11;
@@ -121,7 +123,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label3.Location = new System.Drawing.Point(60, 196);
+            this.label3.Location = new System.Drawing.Point(50, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(358, 29);
             this.label3.TabIndex = 12;
@@ -129,17 +131,18 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(356, 237);
+            this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBuscar.Location = new System.Drawing.Point(346, 245);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscarAdmin_Click);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(113, 239);
+            this.txtCedula.Location = new System.Drawing.Point(103, 247);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(86, 20);
             this.txtCedula.TabIndex = 14;
@@ -148,7 +151,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(30, 236);
+            this.label4.Location = new System.Drawing.Point(20, 244);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 13;
@@ -157,7 +160,7 @@
             // checkboxIncluirLote
             // 
             this.checkboxIncluirLote.AutoSize = true;
-            this.checkboxIncluirLote.Location = new System.Drawing.Point(311, 78);
+            this.checkboxIncluirLote.Location = new System.Drawing.Point(301, 86);
             this.checkboxIncluirLote.Name = "checkboxIncluirLote";
             this.checkboxIncluirLote.Size = new System.Drawing.Size(75, 17);
             this.checkboxIncluirLote.TabIndex = 16;
@@ -168,14 +171,14 @@
             // 
             this.dataGridViewChofer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChofer.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewChofer.Location = new System.Drawing.Point(34, 291);
+            this.dataGridViewChofer.Location = new System.Drawing.Point(24, 299);
             this.dataGridViewChofer.Name = "dataGridViewChofer";
             this.dataGridViewChofer.Size = new System.Drawing.Size(397, 82);
             this.dataGridViewChofer.TabIndex = 17;
             // 
             // txtMatricula
             // 
-            this.txtMatricula.Location = new System.Drawing.Point(253, 239);
+            this.txtMatricula.Location = new System.Drawing.Point(243, 247);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(86, 20);
             this.txtMatricula.TabIndex = 20;
@@ -184,7 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label5.Location = new System.Drawing.Point(205, 239);
+            this.label5.Location = new System.Drawing.Point(195, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 20);
             this.label5.TabIndex = 19;
@@ -192,19 +195,20 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(356, 262);
+            this.btnIngresar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnIngresar.Location = new System.Drawing.Point(346, 270);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(75, 23);
             this.btnIngresar.TabIndex = 21;
             this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click_1);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label6.Location = new System.Drawing.Point(30, 261);
+            this.label6.Location = new System.Drawing.Point(20, 269);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 22;
@@ -212,7 +216,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(113, 263);
+            this.txtNombre.Location = new System.Drawing.Point(103, 271);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(86, 20);
             this.txtNombre.TabIndex = 23;
@@ -222,7 +226,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(727, 414);
+            this.ClientSize = new System.Drawing.Size(453, 423);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIngresar);

@@ -75,7 +75,7 @@ namespace InfraTrack
                         reader.Close();
                         _infraTrackApp.HabilitarPorRol(rol);
                         MySqlConnection rolConnection = GetConnectionByRole(rol);
-                        MessageBox.Show("Bienvenido Usuario ID: " + txtid.Text + "Rol: " + rol);
+                      //  MessageBox.Show("Bienvenido Usuario ID: " + txtid.Text + "Rol: " + rol);
                         _infraTrackApp.habilitarUsuario();
                         this.Close();
                         
@@ -94,7 +94,7 @@ namespace InfraTrack
             }
         }
 
-        /*private MySqlConnection GetConnectionByRole(string rol)
+        private MySqlConnection GetConnectionByRole(string rol)
         {
             MySqlConnection conn = null;
 
@@ -106,7 +106,7 @@ namespace InfraTrack
                     break;
 
                 case "usuario":
-                    conn = new MySqlConnection("server=localhos;port=3306;database=usuarios;user=root;password=negritoBD123");
+                 //   conn = new MySqlConnection("server=localhos;port=3306;database=usuarios;user=root;password=negritoBD123");
                     break;      
                     
                 case "Funcionario":
@@ -119,33 +119,14 @@ namespace InfraTrack
             }
 
             return conn;
-        }*/
-
-        private MySqlConnection GetConnectionByRole(string rol)
+        }
+        
+        private void LogIn_Load(object sender, EventArgs e)
         {
-            string connectionString = "server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123";
-            switch (rol)
-            {
-                case "admin":
-                    // Assuming admin has different privileges or database settings.
-                    break;
-                case "usuario":
-                    // Regular user connection string.
-                    break;
-                case "Funcionario":
-                    // Connection string for Funcionario.
-                    break;
-                case "Chofer":
-                    // Connection string for Chofer.
-                    break;
-            }
-            return new MySqlConnection(connectionString);
+
         }
 
-
-
-
-        private void LogIn_Load(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

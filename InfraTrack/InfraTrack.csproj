@@ -148,7 +148,6 @@
     <Compile Include="Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="conexion.cs" />
     <Compile Include="Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,7 +168,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="AdmAlmacenes.resx">
       <DependentUpon>AdmAlmacenes.cs</DependentUpon>
     </EmbeddedResource>

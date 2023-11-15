@@ -31,22 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfraTrackApp));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnCamionero = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnAlm = new System.Windows.Forms.Button();
             this.btnBackOffice = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
-            this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.button1 = new System.Windows.Forms.Button();
+            this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelContenedor.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -54,37 +56,21 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Orange;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.btnVolver);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 420);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 368);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnFuncionario);
             this.panel1.Controls.Add(this.btnCamionero);
             this.panel1.Controls.Add(this.btnUsuarios);
             this.panel1.Controls.Add(this.btnCliente);
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(95, 185);
+            this.panel1.Size = new System.Drawing.Size(95, 139);
             this.panel1.TabIndex = 1;
-            // 
-            // btnFuncionario
-            // 
-            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnFuncionario.Location = new System.Drawing.Point(-3, 129);
-            this.btnFuncionario.Name = "btnFuncionario";
-            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
-            this.btnFuncionario.TabIndex = 3;
-            this.btnFuncionario.Text = "Almacenero";
-            this.btnFuncionario.UseVisualStyleBackColor = false;
-            this.btnFuncionario.Visible = false;
-            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // btnCamionero
             // 
@@ -126,12 +112,27 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFuncionario);
             this.panel2.Controls.Add(this.btnAlm);
             this.panel2.Controls.Add(this.btnBackOffice);
-            this.panel2.Location = new System.Drawing.Point(3, 194);
+            this.panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(3, 148);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(95, 135);
             this.panel2.TabIndex = 2;
+            // 
+            // btnFuncionario
+            // 
+            this.btnFuncionario.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnFuncionario.Location = new System.Drawing.Point(-3, 79);
+            this.btnFuncionario.Name = "btnFuncionario";
+            this.btnFuncionario.Size = new System.Drawing.Size(101, 44);
+            this.btnFuncionario.TabIndex = 3;
+            this.btnFuncionario.Text = "Almacenero";
+            this.btnFuncionario.UseVisualStyleBackColor = false;
+            this.btnFuncionario.Visible = false;
+            this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
             // 
             // btnAlm
             // 
@@ -158,40 +159,55 @@
             this.btnBackOffice.UseVisualStyleBackColor = false;
             this.btnBackOffice.Click += new System.EventHandler(this.btnBackOffice_Click);
             // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
-            this.panelContenedor.Controls.Add(this.btnLogin);
-            this.panelContenedor.Location = new System.Drawing.Point(104, 0);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(501, 420);
-            this.panelContenedor.TabIndex = 1;
-            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnLogin.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnLogin.Location = new System.Drawing.Point(390, 369);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(98, 39);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "LogIn";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnVolver.Location = new System.Drawing.Point(3, 335);
+            this.btnVolver.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVolver.Location = new System.Drawing.Point(3, 14);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(66, 27);
+            this.btnVolver.Size = new System.Drawing.Size(101, 36);
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Visible = false;
             this.btnVolver.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelContenedor.BackgroundImage")));
+            this.panelContenedor.Controls.Add(this.btnLogin);
+            this.panelContenedor.Controls.Add(this.button1);
+            this.panelContenedor.Location = new System.Drawing.Point(104, 0);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(501, 427);
+            this.panelContenedor.TabIndex = 1;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnLogin.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogin.Location = new System.Drawing.Point(272, 360);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(119, 34);
+            this.btnLogin.TabIndex = 2;
+            this.btnLogin.Text = "LogIn";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.button1.Location = new System.Drawing.Point(395, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 28);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // mySqlCommand1
             // 
@@ -200,17 +216,15 @@
             this.mySqlCommand1.Transaction = null;
             this.mySqlCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
-            // button1
+            // panel3
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button1.Location = new System.Drawing.Point(3, 368);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel3.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel3.Controls.Add(this.btnVolver);
+            this.panel3.Location = new System.Drawing.Point(0, 360);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(104, 57);
+            this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
             // 
             // InfraTrackApp
             // 
@@ -219,17 +233,19 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(604, 420);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.MaximumSize = new System.Drawing.Size(620, 459);
             this.Name = "InfraTrackApp";
-            this.Text = "INFRATRACK-APP";
+            this.Text = "INFRATRACKAPP";
             this.Load += new System.EventHandler(this.InfraTrackApp_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,6 +265,7 @@
         private MySqlConnector.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
     }
 }
