@@ -35,7 +35,6 @@
             this.dataGridViewAlmacen = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.checkboxIncluirChofer = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlmacen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChofer)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(354, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Administracion De Almacenes";
+            this.label1.Text = "Administración De Almacenes";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -118,16 +118,6 @@
             this.checkboxIncluirChofer.TabIndex = 11;
             this.checkboxIncluirChofer.Text = "IncluirChofer";
             this.checkboxIncluirChofer.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.label3.Location = new System.Drawing.Point(50, 204);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(358, 29);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Administracion Camion/Chofer";
             // 
             // btnBuscar
             // 
@@ -210,16 +200,26 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.label6.Location = new System.Drawing.Point(20, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 20);
+            this.label6.Size = new System.Drawing.Size(148, 20);
             this.label6.TabIndex = 22;
-            this.label6.Text = "Nombre:";
+            this.label6.Text = "Nombre_Completo";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(103, 271);
+            this.txtNombre.Location = new System.Drawing.Point(188, 269);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(86, 20);
+            this.txtNombre.Size = new System.Drawing.Size(141, 20);
             this.txtNombre.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
+            this.label7.Location = new System.Drawing.Point(46, 194);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(358, 29);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Administración Camion/Chofer";
             // 
             // AdmAlmacenes
             // 
@@ -227,6 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(453, 423);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnIngresar);
@@ -237,7 +238,6 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.checkboxIncluirChofer);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dataGridViewAlmacen);
@@ -264,7 +264,6 @@
         private System.Windows.Forms.DataGridView dataGridViewAlmacen;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.CheckBox checkboxIncluirChofer;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label4;
@@ -275,5 +274,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label7;
     }
 }

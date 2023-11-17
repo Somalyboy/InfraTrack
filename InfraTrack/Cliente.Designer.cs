@@ -58,13 +58,13 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.label1.Location = new System.Drawing.Point(24, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(163, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID Del Paquete:";
+            this.label1.Text = "Código Del Paquete:";
             // 
             // txtPedido
             // 
-            this.txtPedido.Location = new System.Drawing.Point(158, 9);
+            this.txtPedido.Location = new System.Drawing.Point(188, 9);
             this.txtPedido.Name = "txtPedido";
             this.txtPedido.Size = new System.Drawing.Size(100, 20);
             this.txtPedido.TabIndex = 1;
@@ -86,9 +86,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.DarkOrange;
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(267, 9);
+            this.button2.Location = new System.Drawing.Point(294, 7);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 23);
+            this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "BUSCAR PAUQETE";
             this.button2.UseVisualStyleBackColor = false;

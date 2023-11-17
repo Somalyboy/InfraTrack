@@ -24,15 +24,16 @@ namespace InfraTrack
             InitializeComponent();
             _infraTrackApp = infraTrackApp;
         }
-
-        string username;
-        string password;
+        
 
         private MySqlConnection GetConnection()
         {
-            string username = "";
-            string password = ""; 
-            string connectionString = $"server=localhost;port=3306;database=usuarios;user={username};password={password}";
+            string username = "Usuario_Administrativo";
+            string password = "123";
+            string ip = "localhost";
+            string database = "usuarios";
+            string connectionString = $"server={ip};port=3306;database={database};user={username};password={password}";
+          //  string connectionString = $"server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123";
             return new MySqlConnection(connectionString);
         }
 
@@ -66,13 +67,13 @@ namespace InfraTrack
                     string contrasena = txtpassword.Text;
                     conn.Open();
 
-                    string query ="SELECT rol.Nombre_Rol, usuario.Usuario FROM usuario " +
+                    string query = "SELECT rol.Nombre_Rol, usuario.Usuario FROM usuario " +
                            "JOIN posee ON usuario.Cedula = posee.Cedula " +
                            "JOIN rol ON posee.Id_Rol = rol.Id_Rol " +
-                           "WHERE usuario.Cedula = @id AND usuario.contrasena = @contrasena";
+                           "WHERE usuario.Cedula = @cedula AND usuario.contrasena = @contrasena";
 
                     MySqlCommand comando = new MySqlCommand(query, conn);
-                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@cedula", id);
                     comando.Parameters.AddWithValue("@contrasena", contrasena);
                     MySqlDataReader reader = comando.ExecuteReader();
 
@@ -83,10 +84,10 @@ namespace InfraTrack
                         string Usuario = reader["Usuario"].ToString();
                         reader.Close();
 
-                        
+                        MySqlConnection rolConnection = GetConnectionByRole(rol);
                         _infraTrackApp.HabilitarPorRol(rol);
                         _infraTrackApp.Identificar_Usuario(Usuario);
-                         MySqlConnection rolConnection = GetConnectionByRole(rol);
+                         
                         this.Close();
                         //  MessageBox.Show("Bienvenido " + nombreCompleto + ", Rol: " + rol);
 
@@ -128,12 +129,20 @@ namespace InfraTrack
 
         public static MySqlConnection GetConnectionByRole(string rol)
         {
-            MySqlConnection conn = null;
 
+            MySqlConnection conn = null;
+            string username = "";
+            string password = "";
+            string ip = "localhost";
+            string database = "usuarios";
+
+            string connectionString = $"server={ip};port=3306;database={database};user={username};password={password}";
             switch (rol)
             {
                 case "Administrativo":
-                    conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user='Usuario_Admin;password=123");
+                    conn = new MySqlConnection(connectionString);
+                    username = "Usuario_Administrativo";
+                    password = "123";
                     //c.Show();
                     break;
 

@@ -102,7 +102,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 20);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Ingrese Camion";
+            this.label4.Text = "Ingrese Camión";
             // 
             // label5
             // 

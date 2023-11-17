@@ -97,9 +97,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.label11.Location = new System.Drawing.Point(256, 39);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 20);
+            this.label11.Size = new System.Drawing.Size(99, 20);
             this.label11.TabIndex = 33;
-            this.label11.Text = "IdCamion:";
+            this.label11.Text = "ID_ camión ";
             // 
             // txtCamion2
             // 
@@ -230,7 +230,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(218, 29);
             this.label5.TabIndex = 51;
-            this.label5.Text = "Gestion Trayectos";
+            this.label5.Text = "Gestión Trayectos";
             // 
             // label1
             // 
@@ -238,9 +238,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.label1.Location = new System.Drawing.Point(1, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 20);
+            this.label1.Size = new System.Drawing.Size(139, 20);
             this.label1.TabIndex = 43;
-            this.label1.Text = "Ingresar Camion:";
+            this.label1.Text = "Ingresar camión :";
             // 
             // comboBoxEstado
             // 
@@ -256,9 +256,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.label4.Location = new System.Drawing.Point(1, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 20);
+            this.label4.Size = new System.Drawing.Size(161, 20);
             this.label4.TabIndex = 45;
-            this.label4.Text = "Estado Del Camion:";
+            this.label4.Text = "Estado Del camión :";
             // 
             // btnActualizarEstado
             // 
@@ -291,7 +291,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(182, 29);
             this.label14.TabIndex = 50;
-            this.label14.Text = "Gestion Chofer";
+            this.label14.Text = "Gestión Chofer";
             // 
             // panel2
             // 

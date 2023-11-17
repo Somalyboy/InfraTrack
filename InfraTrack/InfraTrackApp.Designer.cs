@@ -38,14 +38,14 @@
             this.btnFuncionario = new System.Windows.Forms.Button();
             this.btnAlm = new System.Windows.Forms.Button();
             this.btnBackOffice = new System.Windows.Forms.Button();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.btnLogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,6 +163,25 @@
             this.btnBackOffice.UseVisualStyleBackColor = false;
             this.btnBackOffice.Click += new System.EventHandler(this.btnBackOffice_Click);
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblCliente.Location = new System.Drawing.Point(3, 286);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(64, 18);
+            this.lblCliente.TabIndex = 18;
+            this.lblCliente.Text = "Usuario:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lblNombre.Location = new System.Drawing.Point(73, 286);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(0, 20);
+            this.lblNombre.TabIndex = 17;
+            // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -229,25 +248,6 @@
             this.panel3.Size = new System.Drawing.Size(104, 57);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblCliente.Location = new System.Drawing.Point(3, 286);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(64, 18);
-            this.lblCliente.TabIndex = 18;
-            this.lblCliente.Text = "Usuario:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lblNombre.Location = new System.Drawing.Point(73, 286);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(0, 20);
-            this.lblNombre.TabIndex = 17;
             // 
             // InfraTrackApp
             // 
