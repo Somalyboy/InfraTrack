@@ -44,6 +44,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,6 +58,8 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Orange;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.lblCliente);
+            this.flowLayoutPanel1.Controls.Add(this.lblNombre);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(104, 368);
@@ -226,6 +230,25 @@
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint_1);
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblCliente.Location = new System.Drawing.Point(3, 286);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(64, 18);
+            this.lblCliente.TabIndex = 18;
+            this.lblCliente.Text = "Usuario:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lblNombre.Location = new System.Drawing.Point(73, 286);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(0, 20);
+            this.lblNombre.TabIndex = 17;
+            // 
             // InfraTrackApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +265,7 @@
             this.Text = "INFRATRACKAPP";
             this.Load += new System.EventHandler(this.InfraTrackApp_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelContenedor.ResumeLayout(false);
@@ -267,5 +291,7 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Label lblNombre;
     }
 }

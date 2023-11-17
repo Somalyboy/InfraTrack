@@ -86,6 +86,10 @@ namespace InfraTrack
             }
         }
 
+        public void Identificar_Usuario(string Usuario)
+        {
+            lblCliente.Text = Usuario;
+        }
         public void ComenzarTrayecto()
         {
             abrirForm(new AdmCamioneros());
@@ -120,8 +124,7 @@ namespace InfraTrack
         {
                 abrirForm(new Cliente());
             
-
-            }
+        }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {

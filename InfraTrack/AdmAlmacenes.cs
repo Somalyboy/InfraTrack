@@ -13,9 +13,12 @@ namespace InfraTrack
 {
     public partial class AdmAlmacenes : Form
     {
-        public AdmAlmacenes()
+        private string userRol;
+
+        public AdmAlmacenes(string rol)
         {
             InitializeComponent();
+            userRol = rol;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,37 +35,35 @@ namespace InfraTrack
         public DataTable BuscarAlmacen(string NombreAlmacen)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 try
                 {
                     if (!string.IsNullOrWhiteSpace(NombreAlmacen))
                     {
                         conn.Open();
-                        string query = "SELECT * FROM Almacenes WHERE Nombre LIKE @Nombre";
+                        string query = "SELECT * FROM almacenes WHERE Nombre = @Nombre";
 
                         if (checkboxIncluirChofer.Checked)
                         {
-                            query = @"
-                            SELECT 
-                                Almacenes.*, 
-                                Choferes.Nombre as NombreChofer
-                            FROM Almacenes
-                            JOIN Conduce ON Almacenes.IdAlmacen = Conduce.IdAlmacen
-                            JOIN Choferes ON Conduce.Cedula = Choferes.Cedula
-                            WHERE Almacenes.Nombre LIKE @Nombre";
+                            query = @"SELECT lt.Id_Lote, tr.Matricula, d.Nombre_Departamento
+                                    FROM Lotes lt
+                                    JOIN transporta tr ON lt.Id_Lote = tr.Id_Lote
+                                    JOIN rel_almacenes_transporta rat ON lt.Id_Lote = rat.Id_Lote
+                                    JOIN Almacenes al ON rat.Id_Almacen = al.Id_Almacen
+                                    JOIN Ciudad ci ON al.Ciudad = ci.Id_Ciudad
+                                    JOIN Departamento d ON ci.Id_Departamento = d.Id_Departamento
+                                    WHERE d.Nombre_Departamento = 'NombreDelDepartamento';
+";
                         }
 
                         if (checkboxIncluirLote.Checked)
                         {
                             query = @"
-                            SELECT 
-                                Almacenes.*, 
-                                Lotes.IdLote
-                            FROM Almacenes
-                            JOIN RelAlmacenesTransporta ON Almacenes.IdAlmacen = RelAlmacenesTransporta.IdAlmacen
-                            JOIN Lotes ON RelAlmacenesTransporta.IdLote = Lotes.IdLote
-                            WHERE Almacenes.Nombre LIKE @Nombre";
+                                SELECT 
+                                Almacenes.*
+                                FROM Almacenes
+                                WHERE Almacenes.Nombre LIKE @Nombre";
                         }
 
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -126,7 +127,7 @@ namespace InfraTrack
             }
             else
             {
-                MessageBox.Show("Ingrese un ID de usuario o una matrícula para eliminar.");
+                MessageBox.Show("Ingrese datos validos.");
             }
         }
 
@@ -155,7 +156,7 @@ namespace InfraTrack
         private DataTable BuscarChofer(string idChofer)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 try
                 {
@@ -183,7 +184,7 @@ namespace InfraTrack
         private DataTable BuscarTransporte(string matricula)
         {
             DataTable dt = new DataTable();
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 try
                 {
@@ -211,7 +212,7 @@ namespace InfraTrack
 
         private bool ExisteTransporte(string matricula)
         {
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 conn.Open();
                 string query = "SELECT COUNT(*) FROM Transporte WHERE Matricula = @Matricula;";
@@ -255,7 +256,7 @@ namespace InfraTrack
 
         private void InsertarTransporteDefault(string matricula)
         {
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 conn.Open();
                 string query = @"
@@ -272,7 +273,7 @@ namespace InfraTrack
 
         private bool EliminarUsuario(string idChofer)
         {
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 try
                 {
@@ -296,7 +297,7 @@ namespace InfraTrack
 
         private bool EliminarTransporte(string matricula)
         {
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 try
                 {
@@ -320,7 +321,7 @@ namespace InfraTrack
 
         private void AsociarChoferConTransporte(string idChofer, string matricula)
         {
-            using (MySqlConnection conn = new conexion().GetConexion())
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
                 conn.Open();
                 string query = @"

@@ -13,9 +13,12 @@ namespace InfraTrack
 {
     public partial class AdmCamioneros : Form
     {
-        public AdmCamioneros()
+        private string userRol;
+
+        public AdmCamioneros(string Rol)
         {
             InitializeComponent();
+            userRol = Rol;
         }
 
         private void AdmCamioneros_Load(object sender, EventArgs e)
@@ -31,26 +34,25 @@ namespace InfraTrack
         private void button1_Click(object sender, EventArgs e)
         {
             string idCamion = txtIdCamion.Text;
-            string connectionString = "";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
-                connection.Open();
+                conn.Open();
                 string query = @"SELECT 
-                            a.Nombre, 
-                            a.Direccion, 
-                            rt.Fecha, 
-                            rt.Hora 
-                         FROM 
-                            Transporte t
-                         JOIN 
-                            Rel_Almacenes_Transporta rt ON t.Matricula = rt.Matricula
-                         JOIN 
-                            Almacenes a ON rt.IdAlmacen = a.Id
-                         WHERE 
-                            t.Matricula = @IdCamion";
+                        tr.IdTrayecto, 
+                        r.NombreRuta, 
+                        tr.FechaInicio, 
+                        tr.FechaFinal 
+                     FROM 
+                        Transporte t
+                     JOIN 
+                        Trayecto tr ON t.Matricula = tr.Matricula
+                     JOIN 
+                        Ruta r ON tr.IdRuta = r.Id
+                     WHERE 
+                        t.Matricula = @IdCamion";
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@IdCamion", idCamion);
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
@@ -66,11 +68,10 @@ namespace InfraTrack
         private void button2_Click(object sender, EventArgs e)
         {
             string idTrayecto = txtTrayecto.Text;
-            string connectionString = "";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+            using (MySqlConnection conn = LogIn.GetConnectionByRole(userRol))
             {
-                connection.Open();
+                conn.Open();
 
                 string query = @"SELECT 
                             r.NombreRuta, 
@@ -93,7 +94,7 @@ namespace InfraTrack
                          ORDER BY 
                             tr.Fecha, tr.Hora;";
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@IdTrayecto", idTrayecto);
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))

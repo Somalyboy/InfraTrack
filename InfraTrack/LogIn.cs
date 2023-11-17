@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySqlConnector;
 using System.Configuration;
 using System.Security.Cryptography;
+using Newtonsoft.Json;
+
 
 namespace InfraTrack
 {
@@ -23,14 +25,19 @@ namespace InfraTrack
             _infraTrackApp = infraTrackApp;
         }
 
+        string username;
+        string password;
 
         private MySqlConnection GetConnection()
         {
-            string connectionString = "server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123";
+            string username = "";
+            string password = ""; 
+            string connectionString = $"server=localhost;port=3306;database=usuarios;user={username};password={password}";
             return new MySqlConnection(connectionString);
         }
 
-        //hash sha256
+
+        //hash sha256//falta guardar pwd hasheada en sistema
         private string HashPassword(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())
@@ -53,39 +60,52 @@ namespace InfraTrack
         {
             try
             {
-
                 using (MySqlConnection conn = GetConnection())
                 {
-
                     string id = txtid.Text;
-                    // string contrasenaHash = HashPassword(txtpassword.Text);
                     string contrasena = txtpassword.Text;
                     conn.Open();
-                    
-                    string query = "SELECT rol FROM usuario WHERE id = @id AND contrasena = @contrasena";
+
+                    string query ="SELECT rol.Nombre_Rol, usuario.Usuario FROM usuario " +
+                           "JOIN posee ON usuario.Cedula = posee.Cedula " +
+                           "JOIN rol ON posee.Id_Rol = rol.Id_Rol " +
+                           "WHERE usuario.Cedula = @id AND usuario.contrasena = @contrasena";
+
                     MySqlCommand comando = new MySqlCommand(query, conn);
-                    comando.Parameters.AddWithValue("@id", txtid.Text);
-                    comando.Parameters.AddWithValue("@contrasena", txtpassword.Text);
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@contrasena", contrasena);
                     MySqlDataReader reader = comando.ExecuteReader();
 
                     if (reader.HasRows)
                     {
                         reader.Read();
-                        string rol = reader["rol"].ToString();
+                        string rol = reader["Nombre_Rol"].ToString();
+                        string Usuario = reader["Usuario"].ToString();
                         reader.Close();
-                        _infraTrackApp.HabilitarPorRol(rol);
-                        MySqlConnection rolConnection = GetConnectionByRole(rol);
-                      //  MessageBox.Show("Bienvenido Usuario ID: " + txtid.Text + "Rol: " + rol);
-                        _infraTrackApp.habilitarUsuario();
-                        this.Close();
+
                         
+                        _infraTrackApp.HabilitarPorRol(rol);
+                        _infraTrackApp.Identificar_Usuario(Usuario);
+                         MySqlConnection rolConnection = GetConnectionByRole(rol);
+                        this.Close();
+                        //  MessageBox.Show("Bienvenido " + nombreCompleto + ", Rol: " + rol);
+
+                        
+                        var usuarioInfo = new
+                        {
+                            Rol = rol,
+                            Usuario = Usuario
+                        };
+                        
+                        string jsonUsuario = JsonConvert.SerializeObject(usuarioInfo);
+                        
+
                     }
                     else
                     {
                         MessageBox.Show("Usuario no encontrado");
-
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -94,27 +114,37 @@ namespace InfraTrack
             }
         }
 
-        private MySqlConnection GetConnectionByRole(string rol)
+        //Por el momento solo obtenemos los datos-API off 
+        private void AccederInformacionUsuario()
+        {
+            string jsonUsuario;
+            
+            dynamic usuarioInfo = JsonConvert.DeserializeObject(jsonUsuario);
+            
+            string rol = usuarioInfo.Rol;
+            string usuario = usuarioInfo.Usuario;
+
+        }
+
+        public static MySqlConnection GetConnectionByRole(string rol)
         {
             MySqlConnection conn = null;
 
             switch (rol)
             {
-                case "admin":
-                    conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
+                case "Administrativo":
+                    conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user='Usuario_Admin;password=123");
                     //c.Show();
                     break;
 
-                case "usuario":
-                 //   conn = new MySqlConnection("server=localhos;port=3306;database=usuarios;user=root;password=negritoBD123");
-                    break;      
-                    
-                case "Funcionario":
-                  //  conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
-                    break;
-
                 case "Chofer":
-                  //  conn = new MySqlConnection("server=localhost;port=3306;database=usuarios;user=root;password=negritoBD123");
+                //  conn = new MySqlConnection("server=localhost;port=3306;database=infratrack;user=root;password=asgjqh");                    break;      
+
+                case "Almacenero":
+                //  conn = new MySqlConnection("server=localhost;port=3306;database=infratrack;user=root;password=asgjqh");                    break;
+
+                case "Cliente":
+                  //  conn = new MySqlConnection("server=localhost;port=3306;database=infratrack;user=root;password=asgjqh");
                     break;
             }
 
